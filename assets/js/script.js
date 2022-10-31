@@ -37,9 +37,9 @@ $("#currentDay").text(todaysDate);
 
 //function to change backgrounds color depending on the time
 for (var i = 0; i < 9; i++) {
-  var currentTime = moment().format("HH") // Pulls current time, we only want hours since the schedule is done by the hour
+  var currentTime = moment().format("HH") + ":00" // Pulls current time, we only want hours since the schedule is done by the hour
   if (currentTime > scheduleTimeEl.children[i].children[0].innerHTML) {
-    scheduleTimeEl.children[i].children[1].setAttribute("style", "background-color: grey"); 
+    scheduleTimeEl.children[i].children[1].setAttribute("style", "background-color: #C0C0C0");
   } else if (currentTime == scheduleTimeEl.children[i].children[0].innerHTML) {
     scheduleTimeEl.children[i].children[1].setAttribute("style", "background-color: red");
   } else {
@@ -93,7 +93,7 @@ timeSlot8El.children[2].addEventListener("click", function() {
   localStorage.setItem('todoItem8', timeblocks8El.innerHTML)
 });
 
-//Below is event listeners to add lock and unlock buttons rather than the save button with an always editable field
+//Below is event listeners to add lock and unlock buttons rather than the save button with an always editable field. Just need to put "🔒" as the button text in index.html
 // I would obviously like this to be more automated, but I was struggling with it, I tried using a for loop with scheduleTime.Children[i].children[2].innerHTML, but I couldn't get it to work
 // timeSlot0El.children[2].addEventListener("click", function() {
 //     console.log(timeSlot0El.children[2].innerHTML);
